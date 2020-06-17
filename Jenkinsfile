@@ -8,11 +8,7 @@ pipeline {
         stage('Build') {
             agent { label 'build' }
             steps {
-                echo "Aborting all running jobs ..."
-                script {
-                    abortAllPreviousBuildInProgress(currentBuild)
-                   
-                }
+        
                 script {    
                     // Use Pipeline-cli node project to build the open shift images, wiof-app-build ( open jdk image to build code with maven ) and wiof-build ( jboss web server image to host the web application ) 
                     echo "Building Openshift Images..." 
